@@ -1,0 +1,328 @@
+:root {
+  --primaryColor: #4caf50;
+  --lightColor: #80e27e;
+  --darkColor: #087f23;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Open Sans" !important;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  color: var(--lightColor);
+  font-size: 4vw;
+  margin: 10px;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  color: darkgray;
+  font-size: 2em;
+  margin: 10px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  background-color: var(--primaryColor);
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.menu-icon {
+  height: 45px;
+  width: 45px;
+  margin: 10px;
+  padding-left: 5px;
+}
+
+.site-title {
+  font-size: 1em;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+.content {
+  height: 200px;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: lightgrey;
+  color: black;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  order: 4;
+  display: flex;
+  justify-content: space-around;
+}
+
+.marquee {
+  white-space: nowrap;
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 900s linear infinite;
+}
+@keyframes marquee {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+.no-result {
+  text-align: center;
+}
+
+.github-link {
+  border: 1px solid var(--primaryColor);
+  background-color: var(--primaryColor);
+  padding: 8px;
+  text-decoration: none;
+  color: black;
+  border-radius: 5px;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  border: 1px solid lightgray;
+  background-color: var(--lightColor);
+  padding: 5px;
+}
+
+.btn-group {
+  flex-direction: row;
+  margin: 5px;
+}
+
+.results {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.entry {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+} 
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-results {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.forecast-results {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+}
+
+.hour {
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+}
+
+.hour p {
+  font-size: .50em;
+}
+
+.forecast-day img {
+  width: 50px;
+  height: 50px;
+}
+
+.forecast-day p {
+  font-size: 1em;
+}
+
+.market-news {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 15vw;
+  display: flex; 
+  background-color: gray;
+}
+
+
+.news-content {
+  margin-top: 1vw;
+  font-size: 3vw;
+
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+  .footer {
+    flex-direction: column;
+    padding: 3px;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+  }
+
+  h1 {
+    font-size: 4vw;
+    margin: 2px;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  h4 {
+    font-size: 1.5em;
+  }
+
+  .footer-text {
+    font-size: .8em;
+    padding-bottom: 3px;
+  }
+
+  .forecast-day {
+    margin-top: 20px;
+  }
+
+  .entry {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+
+  .description h4 {
+    font-size: 1.3em;
+    margin-top: 20px;
+  }
+
+  
+
+
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  .site-title {
+    font-size: 2em;
+  }
+
+  .page {
+    width: 100%;
+    margin: 15px auto;
+  }
+
+  h4 {
+    font-size: 1.5em;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 3px;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .results {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .forecast-day {
+    margin-top: 20px;
+  }
+
+  .entry {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+
+  .description h4 {
+    font-size: 1.3em;
+    margin-top: 20px;
+  }
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+  .site-title {
+    font-size: 2em;
+  }
+
+  .page {
+    margin: 0 auto;
+  }
+
+  .results {
+    height: calc(100% - 50px);
+  }
+
+  .footer {
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+  }
+
+  .news-content {
+    font-size: 2vw;
+  }
+
+  .market-news {
+    height: 12vw;
+  }
+
+
+}

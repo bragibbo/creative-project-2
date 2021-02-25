@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Cap-i-talize | Market Info</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Francois+One&family=Oswald&family=Patua+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+</head>
+
+<body>
+  <div class='page'>
+    <div class='section menu'>
+      <a href="/index.html"><img class="menu-icon" src="/images/cloud.svg"/></a>
+      <div class="site-title">Cap-i-talize</div>
+    </div>
+
+    <div class='market-news'>
+      <h1 class = 'news-title'>Market News</h1>
+      <p class="marquee news-content" id="scroll-news">Scrolling Slide Text</p>
+    </div>
+ 
+    <div class="section content">
+      <h1>Stock Info</h1>
+      <h3><em>Search for a companies' info</em></h3>
+
+      <form class="search">
+        <input id="tickerInput" placeholder="Enter company name or ticker" type="text"></input>
+        <div class="btn-group">
+          <input class="btn"id="tickerSubmit" type="submit" value="Submit"></input>
+          <input class="btn" id="tickerClear" type="submit" value="Clear"></input>
+        </div>
+      </form>
+    </div>
+
+    <div class="section results">
+      <h1>Results</h1>
+      <div class="weather-results" id="weatherResults">
+        <p class="no-result">No Results... Please enter a city</p>
+        <!-- Current Weather Results div -->
+      </div>
+
+      <div class="forecast-results" id="forecastResults">
+        <!-- Forecast Results div -->
+      </div>
+    </div>
+
+    <div class="section footer">
+      <div class="footer-text">Nathan Sirrine<br/>Brayden Gibbons</div>
+      <a class="github-link" href="https://github.com/bragibbo/creative-project-2">
+        GitHub Project
+      </a>
+    </div>
+  </div>  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+  <script text="type/javascript" src="/script.js">
+  </script>
+
+</body>
+
+</html>
