@@ -19,7 +19,7 @@ h1 {
   display: flex;
   justify-content: center;
   color: var(--lightColor);
-  font-size: 4vw;
+  font-size: 10vw;
   margin: 10px;
 }
 
@@ -32,6 +32,7 @@ h2 {
 }
 
 h3 {
+  font-size: 2vw;
   margin-bottom: 10px;
 }
 
@@ -69,7 +70,7 @@ h3 {
 }
 
 .content {
-  height: 200px;
+  height: 100%;
   flex-direction: column;
 }
 
@@ -110,12 +111,24 @@ h3 {
 .search {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 50vw;
+}
+
+.tickerInput {
+  width: 30vw;
+  height: 30px;
+  font-size: 1vw;
 }
 
 .btn {
+  width: 6vw;
+  height: 4vh;
   border: 1px solid lightgray;
   background-color: var(--lightColor);
   padding: 5px;
+  border-radius: 5px;
+  font-size: 1vw;
 }
 
 .btn-group {
@@ -136,69 +149,27 @@ h3 {
   justify-content: space-evenly;
 } 
 
-.weather-icon {
-  width: 100px;
-  height: 100px;
-}
-
-.description {
-  display: flex;
-  flex-direction: column;
-}
-
-.weather-results {
-  width: 100%;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.forecast-results {
-  width: 100%;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.forecast-day {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightgray;
-}
-
-.hour {
-  border: 1px solid lightgray;
-  display: flex;
-  flex-direction: column;
-}
-
-.hour p {
-  font-size: .50em;
-}
-
-.forecast-day img {
-  width: 50px;
-  height: 50px;
-}
-
-.forecast-day p {
-  font-size: 1em;
-}
-
 .market-news {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: 15vw;
+  height: 100%;
   display: flex; 
-  background-color: gray;
+  background-color: lightgray;
 }
-
 
 .news-content {
   margin-top: 1vw;
   font-size: 3vw;
-
+  padding-bottom: 5px;
 }
+
+.news-title {
+  font-size: 4vw;
+}
+
+
 
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
@@ -210,13 +181,8 @@ h3 {
     bottom: 0;
   }
 
-  h1 {
-    font-size: 4vw;
-    margin: 2px;
-  }
-
   h3 {
-    font-size: 1em;
+    font-size: 6vw;
   }
 
   h4 {
@@ -226,10 +192,6 @@ h3 {
   .footer-text {
     font-size: .8em;
     padding-bottom: 3px;
-  }
-
-  .forecast-day {
-    margin-top: 20px;
   }
 
   .entry {
@@ -245,9 +207,21 @@ h3 {
     margin-top: 20px;
   }
 
+  .tickerInput {
+    width: 60vw;
+    height: 30px;
+    font-size: 4vw;
+  }
   
-
-
+  .btn {
+    width: 20vw;
+    height: 4vh;
+    border: 1px solid lightgray;
+    background-color: var(--lightColor);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 4vw;
+  }
 }
 
 /* Tablet Styles */
@@ -256,9 +230,8 @@ h3 {
     font-size: 2em;
   }
 
-  .page {
-    width: 100%;
-    margin: 15px auto;
+  h3 {
+    font-size: 4vw;
   }
 
   h4 {
@@ -294,6 +267,22 @@ h3 {
     font-size: 1.3em;
     margin-top: 20px;
   }
+
+  .tickerInput {
+    width: 60vw;
+    height: 30px;
+    font-size: 3vw;
+  }
+  
+  .btn {
+    width: 20vw;
+    height: 4vh;
+    border: 1px solid lightgray;
+    background-color: var(--lightColor);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 3vw;
+  }
 }
 
 /* Desktop Styles */
@@ -302,8 +291,9 @@ h3 {
     font-size: 2em;
   }
 
-  .page {
-    margin: 0 auto;
+  h1 {
+    font-size: 4vw;
+    margin: 2px;
   }
 
   .results {
@@ -319,10 +309,4 @@ h3 {
   .news-content {
     font-size: 2vw;
   }
-
-  .market-news {
-    height: 12vw;
-  }
-
-
 }

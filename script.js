@@ -28,7 +28,10 @@ const DATA_TYPE = {
 }
 
 const returnSymbolLookup = (json) => {
+  let ticker = json.result[0].description;
+  document.getElementById('results-title').innerHTML = "<h1>Results</h1>";
 
+  document.getElementById("forecastResults").innerHTML = "<p>" + ticker + "</p>";
 }
 
 const returnCompanyProfile = (json) => {
@@ -145,13 +148,29 @@ DATA_TYPE['companyProfile'].formatter = returnCompanyProfile;
 //   getFinnHubData(value, 'forecast');
 // });
 
-// document.getElementById("weatherClear").addEventListener("click", function(event) {
-//   event.preventDefault();
-//   document.getElementById("weatherInput").value = '';
-//   document.getElementById("weatherResults").innerHTML = '<p class="no-result">No Results... Please enter a city.</p>';
-//   document.getElementById("forecastResults").innerHTML = '';
-// });
+document.getElementById("tickerClear").addEventListener("click", function(event) {
+  event.preventDefault();
+  document.getElementById("tickerInput").value = '';
+  document.getElementById("weatherResults").innerHTML = '<p class="no-result">No Results... Please enter a valid company name or ticker.</p>';
+  document.getElementById("forecastResults").innerHTML = '';
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   getFinnHubData('general', 'marketNews');
 });
+
+document.getElementById("tickerSubmit").addEventListener("click", function() {
+  document.getElementById("companyInfo").innerText = '';
+  document.getElementById("stockInfo").innerText = '';
+  event.preventDefault();
+  const value = document.getElementById("tickerInput").value;
+  if (!value) return;
+
+  document.getElementById('results-title').innerHTML = "<h1>Results</h1>";
+  document.getElementById('companyInfo').innerHTML = '<p>Loading...</p>';
+  
+  console.log(value);
+  getFinnHubData(value, 'symbolLookup');
+})
+
+

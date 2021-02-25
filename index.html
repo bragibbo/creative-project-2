@@ -14,36 +14,36 @@
 <body>
   <div class='page'>
     <div class='section menu'>
-      <a href="/index.html"><img class="menu-icon" src="/images/cloud.svg"/></a>
+      <a href="/index.html"><img class="menu-icon" src="/images/stock-exchange-app.svg"/></a>
       <div class="site-title">Cap-i-talize</div>
     </div>
 
     <div class='market-news'>
-      <h1 class = 'news-title'>Market News</h1>
-      <p class="marquee news-content" id="scroll-news">Scrolling Slide Text</p>
+      <h1 class='news-title'>Market News</h1>
+      <p class="marquee news-content" id="scroll-news"></p>
     </div>
  
     <div class="section content">
-      <h1>Stock Info</h1>
+      <h1 id='stock-title'>Stock Info</h1>
       <h3><em>Search for a companies' info</em></h3>
 
       <form class="search">
-        <input id="tickerInput" placeholder="Enter company name or ticker" type="text"></input>
+        <input class="tickerInput" id="tickerInput" placeholder="Enter company name or ticker" type="text"></input>
         <div class="btn-group">
-          <input class="btn"id="tickerSubmit" type="submit" value="Submit"></input>
+          <input class="btn" id="tickerSubmit" type="submit" value="Submit"></input>
           <input class="btn" id="tickerClear" type="submit" value="Clear"></input>
         </div>
       </form>
     </div>
 
     <div class="section results">
-      <h1>Results</h1>
-      <div class="weather-results" id="weatherResults">
-        <p class="no-result">No Results... Please enter a city</p>
-        <!-- Current Weather Results div -->
+      <div id='results-title'>
+      </div>
+      
+      <div class="company-info" id="companyInfo">
       </div>
 
-      <div class="forecast-results" id="forecastResults">
+      <div class="stock-info" id="stockInfo">
         <!-- Forecast Results div -->
       </div>
     </div>
