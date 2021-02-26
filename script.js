@@ -28,18 +28,31 @@ const DATA_TYPE = {
 }
 
 const returnSymbolLookup = (json) => {
-  let ticker = json.result[0].description;
-  document.getElementById('results-title').innerHTML = "<h1>Results</h1>";
-
-  document.getElementById("forecastResults").innerHTML = "<p>" + ticker + "</p>";
+  let ticker = json.result[0].displaySymbol;
+  document.getElementById('loading').innerHTML = '';
+  
+  getFinnHubData(ticker, 'companyProfile');
+  getFinnHubData(ticker, 'quote');
 }
 
 const returnCompanyProfile = (json) => {
+  let html = '';
+  html += `<p>${json.name}</p>
+           <img src=${json.logo}>
+           <p>Exchange: ${json.exhange}</p>
+           <p>Country: ${json.country}</p>
+           <p>`
 
 }
 
 const returnQuote = (json) => {
+  let html = '';
+  html += `<p>Current Price: $${json.c}</p>
+           <p>Open Price: $${json.o}</p>
+           <p>Days' High: $${json.h}</p>
+           <p>Days' Low: $${json.l}</p>`
 
+  document.getElementById('stockInfo').innerHTML = html;
 }
 
 const returnMarketData = (json) => {
@@ -119,7 +132,6 @@ const returnMarketData = (json) => {
 const getFinnHubData = (value, dataType) => {
   const path = DATA_TYPE[dataType].url
   const url = `${BASE_URL}${path}${value}&token=${API_KEY}`;
-  console.log(url);
   fetch(url)
     .then((res) => {
       return res.json();
@@ -167,7 +179,7 @@ document.getElementById("tickerSubmit").addEventListener("click", function() {
   if (!value) return;
 
   document.getElementById('results-title').innerHTML = "<h1>Results</h1>";
-  document.getElementById('companyInfo').innerHTML = '<p>Loading...</p>';
+  document.getElementById('loading').innerHTML = '<p>Loading...</p>';
   
   console.log(value);
   getFinnHubData(value, 'symbolLookup');

@@ -139,8 +139,24 @@ h3 {
 .results {
   height: 100%;
   width: 100%;
-  flex-direction: column;
   margin-bottom: 50px;
+  flex-direction: column;
+}
+
+.company-results {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.company-info {
+  border: 1px solid red;
+}
+
+.stock-info {
+  white-space: nowrap;
+  border: 1px solid green
 }
 
 .entry {
