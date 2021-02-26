@@ -32,22 +32,29 @@ const returnSymbolLookup = (json) => {
   document.getElementById('loading').innerHTML = '';
   
   getFinnHubData(ticker, 'companyProfile');
-  getFinnHubData(ticker, 'quote');
 }
 
 const returnCompanyProfile = (json) => {
   let html = '';
-  html += `<p>${json.name}</p>
-           <img src=${json.logo}>
-           <p>Exchange: ${json.exhange}</p>
-           <p>Country: ${json.country}</p>
-           <p>`
+  html += `<div id='company-profile'>
+              <img src=${json.logo}>
+              <p id='company-name'>${json.name}</p>
+           </div>
+           <div id='company-details'>
+              <p class='company-item'>Ticker: ${json.ticker}</p>
+              <p class='company-item'>Exchange: ${json.exchange}</p>
+              <p class='company-item'>Country: ${json.country}</p>
+              <p class='company-item'>Website: ${json.weburl}</p>
+            </div>`
 
+  getFinnHubData(json.ticker, 'quote');
+  document.getElementById('companyInfo').innerHTML = html;
 }
 
 const returnQuote = (json) => {
   let html = '';
-  html += `<p>Current Price: $${json.c}</p>
+  html += `<h3>Stock Info</h3>
+           <p>Current Price: $${json.c}</p>
            <p>Open Price: $${json.o}</p>
            <p>Days' High: $${json.h}</p>
            <p>Days' Low: $${json.l}</p>`
@@ -66,68 +73,6 @@ const returnMarketData = (json) => {
 
   document.getElementById("scroll-news").innerText = marketDataString;
 }
-  // let results = '';
-  // results += `<h2>Weather in ${json.name}</h2>`;
-  // results += `<div class="entry">`
-  // for (let i=0; i < json.weather.length; i++) {
-  //   results += `<div><img class="weather-icon" src="http://openweathermap.org/img/w/${json.weather[i].icon}.png"/></div>`;
-  // }
-  // results += `<p>Min temp: ${json.main.temp_min}&deg;F<br/>
-  //             Max temp: ${json.main.temp_max}&deg;F<br/>
-  //             Feels Like: ${json.main.temp}&deg;F</br>
-  //             <strong>Current Temp: ${json.main.temp}&deg;F</strong></p>`
-  // results += `<div class="description"><h4>Description:</h4><p>`;
-  // for (let i=0; i < json.weather.length; i++) {
-  //   results += json.weather[i].description
-  //   if (i !== json.weather.length - 1) {
-  //     results += `, `;
-  //   }
-  // }
-  // results += `<br/>Sunrise: ${moment(json.sys.sunrise).format('h:mm:ss a')}<br/>
-  //             Sunset: ${moment(json.sys.sunset).format('h:mm:ss a')} </p></div></div>`;
-  // document.getElementById("weatherResults").innerHTML = results;
-
-// const returnForecastData = (json) => {
-//   let forecast = '<h2>5 Day Forecast</h2>'
-//   let data = {}
-//   let dateSet = new Set()
-//   for (let i=0; i < json.list.length; i++) { 
-//     let date = moment(json.list[i].dt_txt);
-//     let dateFormatted = date.format('YYYYMMDD');
-//     dateSet.add(dateFormatted);
-//     if (data[dateFormatted]) {
-//       data[dateFormatted].push(json.list[i]);
-//     } else {
-//       data[dateFormatted] = [];
-//       data[dateFormatted].push(json.list[i]);
-//     }
-//   }
-//   console.log(data)
-//   const array = Array.from(dateSet)
-//   const sortedArray = array.sort((a,b) => a - b)
-
-//   forecast += `<div class="entry">`;
-//   for (let j=0; j < sortedArray.length; j++) {
-//     const day = data[sortedArray[j]]
-//     forecast += `<div class="forecast-day">`;
-//     forecast += `<h4>${moment(day[0].dt_txt).format('MMMM Do YYYY')}</h4>`
-//     for (let i=0; i < day.length; i++) {
-//       forecast += `<div class="hour">`
-//       forecast += "<h5>" + moment(day[i].dt_txt).format('h:mm:ss a') + "</h5>";
-//       forecast += `<p>Min temp: ${day[i].main.temp_min}</p>`
-//       forecast += `<p>Max temp: ${day[i].main.temp_max}</p>`
-//       forecast += `<p>Feels Like: ${day[i].main.feels_like}</p>`
-//       forecast += "<p>Temperature: " + day[i].main.temp + "</p>";
-//       forecast += '<img src="http://openweathermap.org/img/w/' + day[i].weather[0].icon + '.png"/>'
-//       desc = day[i].weather[0].description
-//       forecast += `<p><strong>${desc[0].toUpperCase() + desc.slice(1)}</strong></p>`
-//       forecast += `</div>`
-//     } 
-//     forecast += `</div>`;
-//   }
-//   forecast += `</div>`;
-//   document.getElementById("forecastResults").innerHTML = forecast;
-// }
 
 const getFinnHubData = (value, dataType) => {
   const path = DATA_TYPE[dataType].url
@@ -144,21 +89,11 @@ const getFinnHubData = (value, dataType) => {
     });
 }
 
-
 // Start of run time scripts
 DATA_TYPE['symbolLookup'].formatter = returnSymbolLookup;
 DATA_TYPE['marketNews'].formatter = returnMarketData;
 DATA_TYPE['quote'].formatter = returnQuote;
 DATA_TYPE['companyProfile'].formatter = returnCompanyProfile;
-
-// document.getElementById("weatherSubmit").addEventListener("click", function(event) {
-//   event.preventDefault();
-//   const value = document.getElementById("weatherInput").value;
-//   if (!value) return;
-//   console.log(value);
-//   getFinnHubData(value, 'weather');
-//   getFinnHubData(value, 'forecast');
-// });
 
 document.getElementById("tickerClear").addEventListener("click", function(event) {
   event.preventDefault();
