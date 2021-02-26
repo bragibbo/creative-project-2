@@ -13,6 +13,13 @@
 body {
   font-size: 16px;
   font-family: "Open Sans" !important;
+  overscroll-behavior-y: none;
+}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 h1 {
@@ -36,41 +43,34 @@ h3 {
   margin-bottom: 10px;
 }
 
-.page {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .section {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
 .menu {
   background-color: var(--primaryColor);
-  height: 100%;
   display: flex;
   justify-content: flex-start;
+  height: 5vw;
 }
 
 .menu-icon {
-  height: 45px;
-  width: 45px;
-  margin: 10px;
+  width: 6vw;
+  margin-top: 2vw;
+  margin: 1vw;
   padding-left: 5px;
 }
 
 .site-title {
-  font-size: 1em;
-  margin-left: 15px;
+  font-size: 4vw;
+  margin-left: .5vw;
   font-weight: 500;
 }
 
 .content {
-  height: 100%;
   flex-direction: column;
 }
 
@@ -81,10 +81,13 @@ h3 {
   padding-bottom: 5px;
   display: flex;
   justify-content: space-around;
+  bottom: 0;
+  order: 4;
 }
 
 .marquee {
   white-space: nowrap;
+  overflow: hidden;
   display: inline-block;
   padding-left: 100%;
   animation: marquee 900s linear infinite;
@@ -136,9 +139,9 @@ h3 {
 }
 
 .results {
-  height: 100%;
   width: 100%;
-  margin-bottom: 50px;
+  height: 100%;
+  margin-bottom: 40px;
   flex-direction: column;
 }
 
@@ -152,6 +155,7 @@ h3 {
 .company-info {
   display: flex;
   flex-direction: column;
+  padding: 5px;
 }
 
 #company-profile {
@@ -191,24 +195,25 @@ h3 {
 } 
 
 .market-news {
+  font-size: 1.5vw;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height: 100%;
-  display: flex; 
   background-color: lightgray;
+  height: 100%;
 }
 
 .news-content {
-  margin-top: 1vw;
+  margin-top: 5px;
   font-size: 10px;
   padding-bottom: 5px;
   overflow: hidden;
 }
 
 .news-title {
-  font-size: 4vw;
+  font-size: 4em;
 }
 
 
@@ -217,6 +222,14 @@ h3 {
   .footer {
     padding: 3px;
     height: 100px;
+  }
+
+  .phantom {
+    height: 65vh;
+  }
+
+  .menu {
+    height: 10vw;
   }
 
   .company-results {
@@ -304,7 +317,18 @@ h3 {
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
   .site-title {
-    font-size: 2em;
+    font-size: 3vw;
+  }
+
+  .phantom {
+    height: 100vh;
+  }
+
+  .menu-icon {
+    width: 4vw;
+    margin: 1vw;
+    margin-top: 2vw;
+    padding-left: 5px;
   }
 
   h3 {
@@ -335,7 +359,6 @@ h3 {
   .results {
     margin-left: 15px;
     margin-right: 15px;
-    height: calc(100% - 50px);
   }
 
   .forecast-day {
@@ -370,12 +393,31 @@ h3 {
     border-radius: 5px;
     font-size: 3vw;
   }
+  
+  .market-news {
+    font-size: 1vw;
+
+  }
 }
 
 /* Desktop Styles */
 @media only screen and (min-width: 961px) {
   .site-title {
-    font-size: 2em;
+    font-size: 2vw;
+  }
+
+  .phantom {
+    height: 60vh;
+  }
+
+  .menu-icon {
+    width: 4vw;
+    margin: 10px;
+    padding-left: 5px;
+  }
+
+  .stock-info {
+    justify-content: flex-end;
   }
 
   h1 {
@@ -385,6 +427,7 @@ h3 {
 
   .results {
     height: calc(100% - 50px);
+    margin-bottom: 75px;
   }
 
   .footer {
@@ -392,6 +435,14 @@ h3 {
   }
 
   .news-content {
-    font-size: 2vw;
+    font-size: 1.5em;
+  }
+
+  .market-news {
+    font-size: .75vw;
+  }
+
+  .news-title {
+    margin-left: 1vw;
   }
 }

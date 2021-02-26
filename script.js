@@ -98,8 +98,9 @@ DATA_TYPE['companyProfile'].formatter = returnCompanyProfile;
 document.getElementById("tickerClear").addEventListener("click", function(event) {
   event.preventDefault();
   document.getElementById("tickerInput").value = '';
-  document.getElementById("weatherResults").innerHTML = '<p class="no-result">No Results... Please enter a valid company name or ticker.</p>';
-  document.getElementById("forecastResults").innerHTML = '';
+  document.getElementById("companyInfo").innerText = '';
+  document.getElementById("stockInfo").innerText = '';
+  document.getElementById('results-title').innerHTML = '';
 });
 
 document.addEventListener("DOMContentLoaded", function() {
